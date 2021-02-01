@@ -32,19 +32,7 @@ class WorldObject extends EventEmitter {
   // Any `spawn` parameters are passed to the `spawn` method of this object. The constructor itself
   // is usually bare-bones, only receiving and setting the `world` attribute, and adding listeners.
   constructor(world) {
-    {
-      // Hack: trick Babel/TypeScript into allowing this before super.
-      if (false) {
-        super();
-      }
-      let thisFn = (() => {
-        this;
-      }).toString();
-      let thisName = thisFn
-        .slice(thisFn.indexOf("{") + 1, thisFn.indexOf(";"))
-        .trim();
-      eval(`${thisName} = this;`);
-    }
+    super();
     this.world = world;
   }
 
